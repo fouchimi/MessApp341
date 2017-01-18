@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/jsr305-2.0.1_4ccc59c08ad02e836eba8a31a749edbc649adf7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/commons-cli-1.2_98fe05c3c96ab893c38476b68bbce651022665d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_bcd31c52c8e00a1df669bbfdb37781899327d565.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.0.0_a3c6a468588ca24203ba8bbad125621c86d39d01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/support-annotations-25.0.0_3a18b817aabf50f6d71380d7fb6f4c76cf60d6c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.0.0_ea8a3fcf06c0028b25e2c5368d4664d8d22d4676.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.2/43eeae0b9fb087bb3194ba59ab63a38a32fbf3e/retrofit-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/retrofit-2.0.2_e5e0b2091aae48be49325f62f2815df1c27fcd57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse/parseinterceptors/0.0.2/8c62746a7c33ffa044d9cd9c390a4c9d209b8925/parseinterceptors-0.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8c62746a7c33ffa044d9cd9c390a4c9d209b8925">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/parseinterceptors-0.0.2_5c81677f4eecc6d0b21f9bbdbaf86a44412f99ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/2.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="343ad59d9fb3bbf6ab99baafad859eb4b0fecc02">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-twitter-core-2.3.0_fb82b04c03c39deb5de6cb3a7cd6d9c590d7ae95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_e35c956c6222f9bcba2e68a0371519873dc3da42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter/2.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e440280fa1956d614ae6a15cd631dc47b5daf67f">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-twitter-2.3.1_f922a25ac867b19ce6eb46c03ab5c0e814b28a27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.13.1/5f645bf60e3b88ccc02bd2a4018c5e3ef2f77d0a/parse-android-1.13.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f645bf60e3b88ccc02bd2a4018c5e3ef2f77d0a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/parse-android-1.13.1_bf89e6d00380f751d517a6e8d04fa1cc00402b09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.facebook.stetho/stetho/1.4.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="32f45bd44a3e7efc235bbfed120029290f5d674a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.facebook.stetho-stetho-1.4.2_f2723cbfe4a15d59b49834579c5b08e503c93dcd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.0_443bd8ec4209c9cfcbe98a7ee20c146ec95c38e1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/answers/1.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="12a82f51a488d577e124fd6038ff3b533311d4b9">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-answers-1.1.1_f7f80fe72af4391245b2318ebf8e135664bbb253.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.1/b9d63507329a7178e026fc334f87587ee5070ac5/gson-2.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/gson-2.6.1_94cdffc5f0c2dd32c1cceb8dc3ac53ee5e41bc7c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_e7b62f499ca055dc0709741d4ae10ba0dd2b7484.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.0.0_bd938050759286715b7a404c3ce143ed132d0732.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.2/f8d87f15b94b8d74e7ccf61d7eedb558811cdb30/converter-gson-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/converter-gson-2.0.2_776c5763ac577c858c6dc29233a7537e2f702822.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_17dafd83fb4a758acf9d5152928013836baa0ee2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.0.0_16a45ace57e29cb707e43f18b3d98f15df51de7b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.0_8d9216dcb79d9a69ff5141207aa0f802a04fc3b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.14/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a319fd4d548ba4cc9511561d37109ba922bfbf6a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/io.fabric.sdk.android-fabric-1.3.14_31140ebf4e4685b96bdaee8f0fe66ba18996a2e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.0.0_da0d70892f56501c5e7adde68aeadea584cef6c6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.18.0_60df0b13ec16f2bd0956fd210c7efee740c0e9ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.0.0_bd2a57e32aab4e7ad59c8acc7d9156fcac03d4b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0_9377b4cc196c3a280ee88a8c3eaf346d5f89bb29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/beta/1.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="13fcdacaecfcce00c7dd129264d70da2ff195563">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-beta-1.1.1_12d7cc2bd7902f3654af0a4c439a7062ac33a8fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.0.0_af87bd62fd38ba4c5b5b8c6f1aeb01842b5c044d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-25.0.0_a1cad896978832ff0b95f4ce6e7bbf99943d5f9e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.0_5ab0388c2a1a662309cd15e8e7828587844ec50d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-composer/2.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f205ba5f15b7b1d65ae41c4ae40087a1d4825fe0">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-tweet-composer-2.3.1_298241af3a53fe09b621d90954f64581e430c20f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/2.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="dd2b777855fc2c66b034f80eb9b285d94c6da589">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-tweet-ui-2.3.1_b8fceeb42a520a2c70c30737d4561e45e2b520d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="78415b95ae3184c5926d593feab64bfc0b73b2dd">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/twitter-text-1.13.0_377ec169204d8d3ceefb5a138d58c378ee6675e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics/2.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7c9c3b5f5f093c43123e905d97d6a06373393afa">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-crashlytics-2.2.1_60e2ccfec2f2ff8de02db2b8a8fbcf165efe5b29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-25.0.0_f8698520d71d76244cb1b301f888689407b1b2ad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.0_46cdb40600ddbf6017a35641c9e28aa4406e22af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.0.0_e3f7a3827b1fdb0cc93d7b4526a029fc3b15f215.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.0_eccb5f24ec858492cf0937a91296c6f92673b1b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-1.2.1_c29bf233b9f65c75ad56bc84a42f9bfed3db12d7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/okio-1.6.0_fe8a67336396f359ed4e0a13fa3c6a2103fa1f0c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_5f104a6610be382696337546c42b360987d711be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.0.0_5ec1bba457e025d43fe3343df09b9711f6022b2b.jar" />
+    </item>
+
+</items>
