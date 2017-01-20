@@ -3,49 +3,76 @@
     android:id="@+id/llaa"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" 
-    >
+    android:orientation="vertical">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
             android:id="@+id/v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/pad_10dp"
-            android:background="@drawable/chat_bubble_gray"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/pad_10dp"
             android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/pad_5dp"
-            android:paddingLeft="@dimen/pad_chat_item"
-            android:paddingTop="@dimen/pad_5dp" >
+            android:paddingLeft="@dimen/pad_5dp">
 
-            <TextView
-                android:id="@+id/lbl1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/chat_bubble_gray"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/main_color_gray_dk"
-                android:textSize="@dimen/txt_13sp" />
-            <TextView
-                android:id="@+id/lbl2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="text"
-                android:textColor="@color/main_color_gray_dk"
-                android:textSize="@dimen/txt_14sp" 
-                android:maxLines="4"/>
+                android:orientation="vertical"
+                android:paddingTop="@dimen/pad_5dp"
+                android:paddingBottom="@dimen/pad_5dp"
+                android:layout_marginLeft="32dp">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/lbl1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/boldBlack"
+                    android:textSize="@dimen/txt_13sp"
+                    android:paddingTop="@dimen/pad_5dp"
+                    android:layout_marginLeft="@dimen/mar_30dp"/>
+
+                <TextView
+                    android:id="@+id/lbl2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/boldBlack"
+                    android:textSize="@dimen/txt_14sp"
+                    android:paddingBottom="@dimen/pad_5dp"
+                    android:layout_marginLeft="@dimen/mar_30dp"
+                    android:maxLines="4"
+                    android:maxWidth="200dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/profile_thumbnail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="@dimen/thumbnail_width"
+                android:maxWidth="@dimen/thumbnail_width"
+                android:minHeight="@dimen/thumbnail_height"
+                android:maxHeight="@dimen/thumbnail_height"
+                android:paddingRight="@dimen/pad_8dp"
+                android:paddingBottom="@dimen/pad_8dp"
+                android:layout_gravity="left"/>
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/lbl3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="text"
             android:textColor="@color/main_color_gray"
             android:textSize="@dimen/txt_14sp"
-            android:layout_alignRight="@+id/v1"
-            android:layout_below="@+id/v1"
-            android:layout_marginTop="@dimen/pad_5dp"
-            android:layout_marginLeft="@dimen/pad_20dp"
+            android:layout_marginLeft="@dimen/pad_15dp"
+            android:layout_gravity="left"
             />
+
+    </LinearLayout>
+
 </LinearLayout>

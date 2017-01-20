@@ -1,5 +1,6 @@
 package com.social.messapp34;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.parse.FindCallback;
@@ -55,6 +57,7 @@ public class SignInActivity extends AppCompatActivity {
     private static final String TWITTER_KEY = "5liuPi4bQUdx8qUBaitkc3Dcx";
     private static final String TWITTER_SECRET = "Oi2s9atv3dDHRcGbBjxdGOclNZzxUtsTI18fm15HBUSL1evcbT";
     private static final String TAG = SignInActivity.class.getSimpleName();
+    private ProgressDialog loginProgressDlg;
 
 
     private Button mLoginButton;
@@ -69,6 +72,7 @@ public class SignInActivity extends AppCompatActivity {
     private FacebookCallback<LoginResult> mCallBack = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
+            loginProgressDlg.dismiss();
             if(Profile.getCurrentProfile() == null){
                 GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
@@ -110,6 +114,7 @@ public class SignInActivity extends AppCompatActivity {
                                                         if (e != null) {
                                                             Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                                             Log.w(TAG, "Error : " + e.getMessage() + ":" + e.getCode());
+                                                            loginProgressDlg.dismiss();
                                                             if (e.getCode() == 202) {
                                                                 Toast.makeText(SignInActivity.this, getString(R.string.username_taken), Toast.LENGTH_LONG).show();
                                                             }
@@ -135,12 +140,14 @@ public class SignInActivity extends AppCompatActivity {
                                                     @Override
                                                     public void done(ParseUser user, ParseException e) {
                                                         goToHomeActivity();
+                                                        loginProgressDlg.dismiss();
                                                     }
                                                 });
                                             }
                                         }else {
                                             //An error has occured
                                             Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                            loginProgressDlg.dismiss();
                                         }
                                     }
                                 });
@@ -153,11 +160,13 @@ public class SignInActivity extends AppCompatActivity {
         @Override
         public void onCancel() {
             Toast.makeText(SignInActivity.this, getString(R.string.auth_canceled), Toast.LENGTH_LONG).show();
+            loginProgressDlg.dismiss();
         }
 
         @Override
         public void onError(FacebookException error) {
             Toast.makeText(SignInActivity.this, getString(R.string.facebook_error), Toast.LENGTH_LONG).show();
+            loginProgressDlg.dismiss();
         }
     };
 
@@ -175,6 +184,8 @@ public class SignInActivity extends AppCompatActivity {
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
             }
         };
+
+        LoginManager.getInstance().logOut();
 
         mAccessToken = AccessToken.getCurrentAccessToken();
         mAccessTokenTracker.startTracking();
@@ -205,12 +216,12 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        /*mTwitterLoginButton.setOnClickListener(new View.OnClickListener() {
+        mTwitterLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 runThread();
             }
-        });*/
+        });
         mTwitterLoginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
@@ -256,9 +267,13 @@ public class SignInActivity extends AppCompatActivity {
                                                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                                                         @Override
                                                         public void done(ParseUser user, ParseException e) {
-                                                            if( e == null) goToHomeActivity();
+                                                            if( e == null) {
+                                                                loginProgressDlg.dismiss();
+                                                                goToHomeActivity();
+                                                            }
                                                             else {
                                                                 Log.d(TAG, e.getMessage());
+                                                                loginProgressDlg.dismiss();
                                                                 Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                                                             }
                                                         }
@@ -266,6 +281,7 @@ public class SignInActivity extends AppCompatActivity {
                                                 }else {
                                                     Log.d(TAG, e.getMessage());
                                                     Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                                    loginProgressDlg.dismiss();
                                                 }
                                             }
                                         });
@@ -278,10 +294,12 @@ public class SignInActivity extends AppCompatActivity {
                                                 public void done(ParseUser user, ParseException e) {
                                                     if( e == null) {
                                                         goToHomeActivity();
+                                                        loginProgressDlg.dismiss();
                                                     }
                                                     else {
                                                         Log.d(TAG, e.getMessage());
                                                         Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                                        loginProgressDlg.dismiss();
                                                     }
                                                 }
                                             });
@@ -303,13 +321,16 @@ public class SignInActivity extends AppCompatActivity {
                     {
                         Log.d(TAG, e.getMessage());
                         Toast.makeText(SignInActivity.this, getString(R.string.twitter_email_failed), Toast.LENGTH_LONG).show();
+                        loginProgressDlg.dismiss();
                     }
+
                 });
             }
 
             @Override
             public void failure(TwitterException exception) {
                 Toast.makeText(SignInActivity.this, getString(R.string.twitter_failure), Toast.LENGTH_LONG).show();
+                loginProgressDlg.dismiss();
             }
         });
 
@@ -323,6 +344,8 @@ public class SignInActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             Thread.sleep(1000);
+                            loginProgressDlg = ProgressDialog.show(SignInActivity.this, null,
+                                    getString(R.string.alert_wait));
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -351,5 +374,11 @@ public class SignInActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
         mTwitterLoginButton.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

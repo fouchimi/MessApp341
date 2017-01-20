@@ -14,4 +14,14 @@
     <color name="main_color_gray_lt">#acacac</color>
     <color name="main_color_gray">#7d7d7d</color>
     <color name="gray_light">#e8e8e8</color>
+
+    <color name="boldBlack">#000000</color>
+    <color name="boldGrey">#9E9E9E</color>
+    <color name="lightPurpleBackground">#e9e4ed</color>
+    <color name="lightPurpleColor">#e1d2f3</color>
+    <color name="pressedPurpleColor">#ba9dda</color>
+    <color name="focused_purple_button">#d6c3ed</color>
+    <color name="owner_text_color">#00796B</color>
+    <color name="friend_text_color">#FF4081</color>
+    <color name="editTextBackground">#91f1f1f1</color>
 </resources>

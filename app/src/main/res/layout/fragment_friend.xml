@@ -1,0 +1,23 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.social.messapp34.FriendFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/friend_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="@dimen/txt_11sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/boldGrey"
+        android:text="@string/no_friends" />
+
+</FrameLayout>
