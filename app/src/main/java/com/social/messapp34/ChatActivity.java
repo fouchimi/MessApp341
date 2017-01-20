@@ -238,6 +238,7 @@ public class ChatActivity extends AppCompatActivity {
 
                 TextView lbl = (TextView) convertView.findViewById(R.id.lbl1);
                 ImageView profileView = (ImageView) convertView.findViewById(R.id.profile_thumbnail);
+
                 if(c.isSent())
                     Picasso.with(ChatActivity.this).load(mCurrentUser.getString(Constants.PROFILE_PICTURE)).transform(new CircleTransform()).into(profileView);
                 else {

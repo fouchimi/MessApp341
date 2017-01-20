@@ -19,6 +19,8 @@
     <dimen name="mar_20dp">20dp</dimen>
     <dimen name="pad_30dp">30dp</dimen>
     <dimen name="mar_30dp">30dp</dimen>
+    <dimen name="mar_40dp">40dp</dimen>
+    <dimen name="mar_45dp">45dp</dimen>
     <dimen name="pad_chat_item">45dp</dimen>
     <dimen name="pad_chat_item1">10dp</dimen>
 

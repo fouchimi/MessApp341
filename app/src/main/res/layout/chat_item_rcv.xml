@@ -14,19 +14,22 @@
             android:id="@+id/v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="@dimen/pad_10dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/pad_5dp">
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/profile_thumbnail"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="left|top"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:background="@drawable/chat_bubble_gray"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="@dimen/pad_5dp"
-                android:paddingBottom="@dimen/pad_5dp"
-                android:layout_marginLeft="32dp">
+                android:layout_marginTop="@dimen/mar_15dp"
+                android:layout_marginLeft="@dimen/mar_45dp">
 
                 <TextView
                     android:id="@+id/lbl1"
@@ -35,7 +38,7 @@
                     android:textColor="@color/boldBlack"
                     android:textSize="@dimen/txt_13sp"
                     android:paddingTop="@dimen/pad_5dp"
-                    android:layout_marginLeft="@dimen/mar_30dp"/>
+                    android:layout_marginLeft="@dimen/mar_40dp"/>
 
                 <TextView
                     android:id="@+id/lbl2"
@@ -44,22 +47,10 @@
                     android:textColor="@color/boldBlack"
                     android:textSize="@dimen/txt_14sp"
                     android:paddingBottom="@dimen/pad_5dp"
-                    android:layout_marginLeft="@dimen/mar_30dp"
                     android:maxLines="4"
+                    android:layout_marginLeft="@dimen/mar_40dp"
                     android:maxWidth="200dp"/>
             </LinearLayout>
-
-            <ImageView
-                android:id="@+id/profile_thumbnail"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:minWidth="@dimen/thumbnail_width"
-                android:maxWidth="@dimen/thumbnail_width"
-                android:minHeight="@dimen/thumbnail_height"
-                android:maxHeight="@dimen/thumbnail_height"
-                android:paddingRight="@dimen/pad_8dp"
-                android:paddingBottom="@dimen/pad_8dp"
-                android:layout_gravity="left"/>
 
         </FrameLayout>
 
