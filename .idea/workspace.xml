@@ -15,13 +15,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/ChatActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/ChatActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/ChatFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/ChatFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/adapters/LastCommentAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/adapters/LastCommentAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java" />
     </list>
     <ignored path="MessApp341.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,23 +75,13 @@
       <file leaf-file-name="activity_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-199">
+            <state relative-caret-position="18">
               <caret line="1" column="98" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer2">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/MemberActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -111,34 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conversation_list.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversation_list.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-              <folding>
-                <element signature="e#519#542#0" expanded="true" />
-                <element signature="e#577#600#0" expanded="true" />
-                <element signature="e#613#2225#0" expanded="false" />
-                <element signature="e#975#991#0" expanded="true" />
-                <element signature="e#1220#1236#0" expanded="true" />
-                <element signature="e#1331#1348#0" expanded="true" />
-                <element signature="e#1755#1771#0" expanded="true" />
-                <element signature="e#2068#2084#0" expanded="true" />
-                <element signature="e#2123#2139#0" expanded="true" />
-                <element signature="e#2182#2198#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FriendFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/FriendFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
+            <state relative-caret-position="346">
               <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
               <folding />
             </state>
@@ -161,14 +124,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LastCommentAdapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LastCommentAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/adapters/LastCommentAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+            <state relative-caret-position="1188">
+              <caret line="66" column="54" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2482#2530#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignInActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="526">
+              <caret line="111" column="29" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
+              <folding>
+                <element signature="e#2919#2949#0" expanded="true" />
+                <element signature="class#12445:18709" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2154,7 +2129,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_in.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_friend.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
@@ -2170,6 +2144,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/ChatFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/ChatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/adapters/LastCommentAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java" />
       </list>
     </option>
   </component>
@@ -2866,8 +2841,8 @@
         <state relative-caret-position="2574">
           <caret line="389" column="21" selection-start-line="389" selection-start-column="16" selection-end-line="389" selection-end-column="21" />
           <folding>
-            <element signature="class#2731:9602" expanded="false" />
-            <element signature="class#12373:18637" expanded="false" />
+            <element signature="class#2731:9674" expanded="false" />
+            <element signature="class#12445:18709" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2979,8 +2954,8 @@
         <state relative-caret-position="2574">
           <caret line="389" column="21" selection-start-line="389" selection-start-column="16" selection-end-line="389" selection-end-column="21" />
           <folding>
-            <element signature="class#2731:9602" expanded="false" />
-            <element signature="class#12373:18637" expanded="false" />
+            <element signature="class#2731:9674" expanded="false" />
+            <element signature="class#12445:18709" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3039,8 +3014,8 @@
         <state relative-caret-position="2574">
           <caret line="389" column="21" selection-start-line="389" selection-start-column="16" selection-end-line="389" selection-end-column="21" />
           <folding>
-            <element signature="class#2731:9602" expanded="false" />
-            <element signature="class#12373:18637" expanded="false" />
+            <element signature="class#2731:9674" expanded="false" />
+            <element signature="class#12445:18709" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3082,17 +3057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2574">
-          <caret line="389" column="21" selection-start-line="389" selection-start-column="16" selection-end-line="389" selection-end-column="21" />
-          <folding>
-            <element signature="class#2731:9602" expanded="false" />
-            <element signature="class#12373:18637" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3175,7 +3139,7 @@
         <state relative-caret-position="270">
           <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
           <folding>
-            <element signature="e#617#646#0" expanded="true" />
+            <element signature="e#617#646#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3205,72 +3169,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/FriendFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversation_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <element signature="e#519#542#0" expanded="true" />
-            <element signature="e#577#600#0" expanded="true" />
-            <element signature="e#613#2225#0" expanded="false" />
-            <element signature="e#975#991#0" expanded="true" />
-            <element signature="e#1220#1236#0" expanded="true" />
-            <element signature="e#1331#1348#0" expanded="true" />
-            <element signature="e#1755#1771#0" expanded="true" />
-            <element signature="e#2068#2084#0" expanded="true" />
-            <element signature="e#2123#2139#0" expanded="true" />
-            <element signature="e#2182#2198#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/MemberActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="1" column="98" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/HomeActivity.java">
@@ -3321,11 +3225,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/adapters/LastCommentAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        <state relative-caret-position="1188">
+          <caret line="66" column="54" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2482#2530#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversation_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding>
+            <element signature="e#519#542#0" expanded="true" />
+            <element signature="e#577#600#0" expanded="true" />
+            <element signature="e#613#2225#0" expanded="false" />
+            <element signature="e#975#991#0" expanded="true" />
+            <element signature="e#1220#1236#0" expanded="true" />
+            <element signature="e#1331#1348#0" expanded="true" />
+            <element signature="e#1755#1771#0" expanded="true" />
+            <element signature="e#2068#2084#0" expanded="true" />
+            <element signature="e#2123#2139#0" expanded="true" />
+            <element signature="e#2182#2198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/MemberActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="98" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/FriendFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/social/messapp34/SignInActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="111" column="29" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
+          <folding>
+            <element signature="e#2919#2949#0" expanded="true" />
+            <element signature="class#12445:18709" expanded="false" />
           </folding>
         </state>
       </provider>

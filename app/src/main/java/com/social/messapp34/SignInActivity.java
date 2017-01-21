@@ -75,7 +75,8 @@ public class SignInActivity extends AppCompatActivity {
     private FacebookCallback<LoginResult> mCallBack = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
-            loginProgressDlg.dismiss();
+            ProgressDialog.show(SignInActivity.this, null,
+                    getString(R.string.alert_wait));
             if(Profile.getCurrentProfile() == null){
                 GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
