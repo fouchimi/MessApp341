@@ -78,6 +78,10 @@ public class LastCommentAdapter extends RecyclerView.Adapter<LastCommentAdapter.
         return conversationList.size();
     }
 
+    public ParseObject getFriend(int position){
+        return conversationList.get(position);
+    }
+
     public static class CommentViewHolder extends RecyclerView.ViewHolder {
         public TextView friendName;
         public ImageView friendPhoto;

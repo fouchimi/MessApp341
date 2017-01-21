@@ -28,4 +28,5 @@ public class Constants
 	public static final String FRIEND_NAME="friend_name";
 	public static final String LAST_CHAT_TABLE= "Comments";
 	public static final String FRIEND_ID = "friend_id";
+	public static final String OBJECT_ID= "objectId";
 }
