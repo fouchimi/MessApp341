@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
@@ -60,6 +61,8 @@ public class SignInActivity extends AppCompatActivity {
     private ProgressDialog loginProgressDlg;
 
 
+    private EditText usernameText;
+    private EditText passwordText;
     private Button mLoginButton;
     private Button mRegisterButton;
     private LoginButton mFbLoginButton;
@@ -193,6 +196,8 @@ public class SignInActivity extends AppCompatActivity {
 
         mLoginButton = (Button) findViewById(R.id.btnLogin);
         mRegisterButton = (Button) findViewById(R.id.btnReg);
+        usernameText = (EditText) findViewById(R.id.user);
+        passwordText = (EditText) findViewById(R.id.pwd);
 
 
         mFbLoginButton = (LoginButton) findViewById(R.id.login_button);
@@ -380,5 +385,28 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    public void logIn(View view){
+        String username = usernameText.getText().toString();
+        String password = passwordText.getText().toString();
+        if(username.length() > 0 && password.length() > 0){
+            ParseUser.logInInBackground(username, password, new LogInCallback() {
+                @Override
+                public void done(ParseUser user, ParseException e) {
+                    if(e == null){
+                        Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        SignInActivity.this.startActivity(intent);
+                    }else {
+                        Log.d(TAG, "Error occured");
+                        Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }else {
+            Log.d(TAG, "Fill all fields");
+            Toast.makeText(this, "Enter username and password", Toast.LENGTH_LONG).show();
+        }
     }
 }

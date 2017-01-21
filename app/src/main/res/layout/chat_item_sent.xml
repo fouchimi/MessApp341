@@ -50,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/profile_thumbnail"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="@dimen/thumbnail_size"
+                android:layout_height="@dimen/thumbnail_size"
                 android:scaleType="fitXY"
                 android:layout_gravity="right|top"/>
 

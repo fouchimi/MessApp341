@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="gone"
-        android:textSize="@dimen/txt_11sp"
+        android:textSize="@dimen/txt_42sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/boldGrey"
         android:text="@string/no_friends" />

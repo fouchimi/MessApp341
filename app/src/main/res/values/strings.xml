@@ -38,6 +38,7 @@
     <string name="action_logout">Log Out</string>
     <string name="action_profile">Profile</string>
     <string name="action_members">Add Friend(s)</string>
+    <string name="action_contacts">Contacts</string>
 
     <!-- FACEBOOK CONFIGURATION INFO -->
     <string name="facebook_app_id">1386549861396391</string>

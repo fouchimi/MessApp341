@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     tools:context="com.social.messapp34.ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chat_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
+        android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="center"
+        android:textSize="@dimen/txt_42sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/boldGrey"
+        android:text="@string/no_chats" />
 
 </FrameLayout>

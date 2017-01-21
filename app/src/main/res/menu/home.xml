@@ -8,6 +8,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_contacts"
+        android:title="@string/action_contacts"
+        android:orderInCategory="101"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/action_logout"
         android:orderInCategory="101"
         android:title="@string/action_logout"

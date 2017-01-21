@@ -19,13 +19,16 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.social.messapp34.adapters.LastCommentAdapter;
 import com.social.messapp34.model.ChatUser;
 import com.social.messapp34.model.Conversation;
 import com.social.messapp34.utils.CircleTransform;
@@ -35,6 +38,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ChatActivity extends AppCompatActivity {
@@ -45,11 +49,10 @@ public class ChatActivity extends AppCompatActivity {
 
     private EditText txt;
     private ChatUser buddy;
-    private Date lastMsgDate;
     private ListView list;
-    private ImageButton mSendButton;
     private ParseUser mCurrentUser;
     public boolean isRunning = false;
+    private LinkedList<ParseObject> recentChats = new LinkedList<>();
 
     private static Handler handler;
 
@@ -70,8 +73,6 @@ public class ChatActivity extends AppCompatActivity {
 
         txt = (EditText) findViewById(R.id.txt);
         txt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-
-        mSendButton = (ImageButton) findViewById(R.id.btnSend);
 
         buddy = (ChatUser) getIntent().getSerializableExtra(Constants.FRIEND);
 
@@ -166,15 +167,21 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(txt.getWindowToken(), 0);
+    }
+
     public void sendMessage(View view){
         final String messageText = txt.getText().toString();
         Log.d(TAG, "Send button pressed!!!");
         if(messageText.length() == 0) return;
         else {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(txt.getWindowToken(), 0);
-
-            Date currentDate = new Date();
+            imm.showSoftInput(txt, InputMethodManager.SHOW_FORCED);
+            final Date currentDate = new Date();
             final Conversation c = new Conversation(messageText, currentDate, mCurrentUser.getObjectId());
             c.setStatus(Conversation.STATUS_SENDING);
             if(convList.size() > 0)
@@ -184,10 +191,19 @@ public class ChatActivity extends AppCompatActivity {
             txt.setText("");
 
             ParseObject newRecord = new ParseObject(Constants.CHATS_TABLE);
+            final ParseObject lastComment = new ParseObject(Constants.LAST_CHAT_TABLE);
+
             newRecord.put(Constants.SENDER, mCurrentUser.getObjectId());
             newRecord.put(Constants.RECEIVER, buddy.getId());
             newRecord.put(Constants.MESSAGE, messageText);
             newRecord.put(Constants.DATE, currentDate);
+
+            lastComment.put(Constants.FRIEND_ID, buddy.getId());
+            lastComment.put(Constants.MESSAGE, messageText);
+            lastComment.put(Constants.DATE, currentDate);
+            lastComment.put(Constants.FRIEND_NAME, buddy.getUsername());
+            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail());
+            lastComment.put(Constants.USER_ID, mCurrentUser.getObjectId());
 
             newRecord.saveEventually(new SaveCallback() {
                 @Override
@@ -199,6 +215,33 @@ public class ChatActivity extends AppCompatActivity {
                         Log.d(TAG, e.getMessage());
                         c.setStatus(Conversation.STATUS_FAILED);
                         chatAdapter.notifyDataSetChanged();
+                    }
+                }
+            });
+
+            ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
+            query.whereEqualTo(Constants.FRIEND_ID, buddy.getId());
+            query.whereEqualTo(Constants.USER_ID, mCurrentUser.getObjectId());
+            query.getFirstInBackground(new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject lastConversation, ParseException e) {
+                    if(e == null){
+                        if(lastConversation != null){
+                            lastConversation.put(Constants.MESSAGE, messageText);
+                            lastConversation.put(Constants.DATE, currentDate);
+                            lastConversation.saveInBackground();
+                        }
+                    }else {
+                        Log.d(TAG, e.getMessage());
+                        lastComment.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e != null){
+                                    Toast.makeText(ChatActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                    Log.d(TAG, e.getMessage());
+                                }
+                            }
+                        });
                     }
                 }
             });
