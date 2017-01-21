@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.social.messapp34.R;
 import com.social.messapp34.utils.CircleTransform;
 import com.social.messapp34.utils.Constants;
@@ -45,8 +46,26 @@ public class LastCommentAdapter extends RecyclerView.Adapter<LastCommentAdapter.
     public void onBindViewHolder(CommentViewHolder holder, int position) {
         if(!conversationList.isEmpty()){
             ParseObject commentObject = conversationList.get(position);
-            holder.friendName.setText(commentObject.getString(Constants.FRIEND_NAME));
-            Picasso.with(mContext).load(commentObject.getString(Constants.PROFILE_PICTURE)).transform(new CircleTransform()).into(holder.friendPhoto);
+            String[] nameChunks = ParseUser.getCurrentUser().getUsername().split("_");
+            String currentUsername = nameChunks[0];
+            String[] friendNameChunks = commentObject.getString(Constants.FRIEND_NAME).split(",");
+            String friendName = "";
+            for(String name : friendNameChunks){
+                if(!name.equals(currentUsername)){
+                    friendName = name;
+                }
+            }
+            holder.friendName.setText(friendName);
+            String friendPicUrl = commentObject.getString(Constants.PROFILE_PICTURE);
+            String[] chunks = friendPicUrl.split(",");
+            String picUrl="";
+            for(String chunk : chunks){
+                if(!chunk.equals(ParseUser.getCurrentUser().getString(Constants.PROFILE_PICTURE))){
+                    picUrl = chunk;
+                }
+            }
+            if(picUrl.length() == 0) picUrl = mContext.getString(R.string.default_profile_url);
+            Picasso.with(mContext).load(picUrl).transform(new CircleTransform()).into(holder.friendPhoto);
             String date = Utility.getFriendlyDayAndTimeString(mContext, commentObject.getCreatedAt().getTime());
             holder.date.setText(date);
             holder.lastConversation.setText(commentObject.getString(Constants.MESSAGE));

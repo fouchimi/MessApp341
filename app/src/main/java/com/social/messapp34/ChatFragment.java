@@ -67,12 +67,21 @@ public class ChatFragment extends Fragment {
 
     public void fetchRecentMessages(){
         final List<ParseObject> comments = new ArrayList<>();
-        ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
-        Log.d(TAG, "Current id: " + ParseUser.getCurrentUser().getObjectId());
-        query.whereEqualTo(Constants.USER_ID, ParseUser.getCurrentUser().getObjectId());
-        query.orderByDescending(Constants.DATE);
+        ParseQuery<ParseObject> firstQuery = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
+        firstQuery.whereEqualTo(Constants.USER_ID, ParseUser.getCurrentUser().getObjectId());
 
-        query.findInBackground(new FindCallback<ParseObject>() {
+        ParseQuery<ParseObject> secondQuery = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
+        secondQuery.whereEqualTo(Constants.FRIEND_ID, ParseUser.getCurrentUser().getObjectId());
+
+        List<ParseQuery<ParseObject>> queries = new ArrayList<>();
+        queries.add(firstQuery);
+        queries.add(secondQuery);
+
+        ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
+
+        mainQuery.orderByDescending(Constants.DATE);
+
+        mainQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> chats, ParseException e) {
                 if(e == null){

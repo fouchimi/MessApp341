@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -52,7 +53,6 @@ public class ChatActivity extends AppCompatActivity {
     private ListView list;
     private ParseUser mCurrentUser;
     public boolean isRunning = false;
-    private LinkedList<ParseObject> recentChats = new LinkedList<>();
 
     private static Handler handler;
 
@@ -190,6 +190,9 @@ public class ChatActivity extends AppCompatActivity {
             chatAdapter.notifyDataSetChanged();
             txt.setText("");
 
+            String[] chunks = mCurrentUser.getUsername().split("_");
+            String currentUserName = chunks[0];
+
             ParseObject newRecord = new ParseObject(Constants.CHATS_TABLE);
             final ParseObject lastComment = new ParseObject(Constants.LAST_CHAT_TABLE);
 
@@ -201,8 +204,8 @@ public class ChatActivity extends AppCompatActivity {
             lastComment.put(Constants.FRIEND_ID, buddy.getId());
             lastComment.put(Constants.MESSAGE, messageText);
             lastComment.put(Constants.DATE, currentDate);
-            lastComment.put(Constants.FRIEND_NAME, buddy.getUsername());
-            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail());
+            lastComment.put(Constants.FRIEND_NAME, buddy.getUsername() + "," + currentUserName);
+            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail()+ "," + mCurrentUser.getString(Constants.PROFILE_PICTURE));
             lastComment.put(Constants.USER_ID, mCurrentUser.getObjectId());
 
             newRecord.saveEventually(new SaveCallback() {
@@ -219,10 +222,21 @@ public class ChatActivity extends AppCompatActivity {
                 }
             });
 
-            ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
-            query.whereEqualTo(Constants.FRIEND_ID, buddy.getId());
-            query.whereEqualTo(Constants.USER_ID, mCurrentUser.getObjectId());
-            query.getFirstInBackground(new GetCallback<ParseObject>() {
+            ParseQuery<ParseObject> firstQuery = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
+            firstQuery.whereEqualTo(Constants.FRIEND_ID, buddy.getId());
+            firstQuery.whereEqualTo(Constants.USER_ID, mCurrentUser.getObjectId());
+
+            ParseQuery<ParseObject> secondQuery = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
+            secondQuery.whereEqualTo(Constants.FRIEND_ID, mCurrentUser.getObjectId());
+            secondQuery.whereEqualTo(Constants.USER_ID, buddy.getId());
+
+            List<ParseQuery<ParseObject>> queries = new ArrayList<>();
+            queries.add(firstQuery);
+            queries.add(secondQuery);
+
+            ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
+
+            mainQuery.getFirstInBackground(new GetCallback<ParseObject>() {
                 @Override
                 public void done(ParseObject lastConversation, ParseException e) {
                     if(e == null){
