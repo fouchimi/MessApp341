@@ -90,6 +90,10 @@
     <string name="message_hint">Type message</string>
     <string name="send">Send</string>
 
+    <!-- GOOGLE CLIENT ID-->
+    <string name="server_client_id">794852879038-ca6vrf56v0qpd9fndhro3n53abk1c77f.apps.googleusercontent.com</string>
+    <string name="server_secret_id">UD7BF-Ud8k4aLw9oikGc37Kx</string>
+
     <!-- SENDER ID -->
     <string name="gcm_sender_id">id:794852879038</string>
 

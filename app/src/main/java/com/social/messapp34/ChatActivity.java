@@ -82,12 +82,12 @@ public class ChatActivity extends AppCompatActivity {
             actionBar.setDisplayOptions(actionBar.getDisplayOptions()
                     | ActionBar.DISPLAY_SHOW_CUSTOM);
             ImageView imageView = new ImageView(actionBar.getThemedContext());
-            imageView.setScaleType(ScaleType.CENTER);
+            imageView.setScaleType(ScaleType.FIT_XY);
             Picasso.with(this).load(buddy.getThumbnail()).transform(new CircleTransform()).into(imageView);
             ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
-                    ActionBar.LayoutParams.WRAP_CONTENT,
-                    ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT
-                    | Gravity.CENTER_VERTICAL);
+                    210,
+                    ActionBar.LayoutParams.MATCH_PARENT, Gravity.RIGHT
+                    | Gravity.FILL_VERTICAL);
             layoutParams.rightMargin = 10;
             imageView.setLayoutParams(layoutParams);
             actionBar.setCustomView(imageView);

@@ -6,7 +6,6 @@ package com.social.messapp34.utils;
 public class Constants
 {
 
-	/** The Constant EXTRA_DATA. */
 	public static final String EXTRA_DATA = "extraData";
 	public static final String USERNAME ="username";
 	public static final String PASSWORD = "password";
@@ -28,5 +27,4 @@ public class Constants
 	public static final String FRIEND_NAME="friend_name";
 	public static final String LAST_CHAT_TABLE= "Comments";
 	public static final String FRIEND_ID = "friend_id";
-	public static final String OBJECT_ID= "objectId";
 }

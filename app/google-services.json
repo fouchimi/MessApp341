@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "794852879038",
+    "project_id": "messapp34-155823"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794852879038:android:f6c7254871c24ace",
+        "android_client_info": {
+          "package_name": "com.social.messapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794852879038-n0hml35lvn2uu8c1crphsfigf07gkj8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPd0RN6chG4mpAiXraZpvX46hGKukzPtM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794852879038:android:b44c0e509b48142f",
+        "android_client_info": {
+          "package_name": "com.social.messapp34"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794852879038-56s91d9301du3gqim518rsurg61f3duv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.social.messapp34",
+            "certificate_hash": "57078DC37AF827135A36E52C2E4C830D7C251BB1"
+          }
+        },
+        {
+          "client_id": "794852879038-n0hml35lvn2uu8c1crphsfigf07gkj8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPd0RN6chG4mpAiXraZpvX46hGKukzPtM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -19,6 +19,7 @@
     <dimen name="mar_20dp">20dp</dimen>
     <dimen name="pad_30dp">30dp</dimen>
     <dimen name="mar_30dp">30dp</dimen>
+    <dimen name="mar_35dp">35dp</dimen>
     <dimen name="mar_40dp">40dp</dimen>
     <dimen name="mar_45dp">45dp</dimen>
     <dimen name="pad_chat_item">45dp</dimen>
@@ -38,5 +39,5 @@
     <dimen name="min_thumbnail_height">70dp</dimen>
     <dimen name="thumbnail_height">58dp</dimen>
     <dimen name="thumbnail_width">60dp</dimen>
-    <dimen name="thumbnail_size">70dp</dimen>
+    <dimen name="thumbnail_size">60dp</dimen>
 </resources>

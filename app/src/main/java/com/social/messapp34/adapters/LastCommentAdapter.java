@@ -59,12 +59,20 @@ public class LastCommentAdapter extends RecyclerView.Adapter<LastCommentAdapter.
             String friendPicUrl = commentObject.getString(Constants.PROFILE_PICTURE);
             String[] chunks = friendPicUrl.split(",");
             String picUrl="";
-            for(String chunk : chunks){
-                if(!chunk.equals(ParseUser.getCurrentUser().getString(Constants.PROFILE_PICTURE))){
-                    picUrl = chunk;
+            String currentProfileUrl = ParseUser.getCurrentUser().getString(Constants.PROFILE_PICTURE);
+            if(currentProfileUrl != null){
+                Log.d(TAG, "" + currentProfileUrl);
+                if(!currentProfileUrl.startsWith("http")) currentProfileUrl  = "http://" + currentProfileUrl;
+                for(String chunk : chunks){
+                    Log.d(TAG, chunk);
+                    if(!chunk.startsWith("http")) chunk = "http://" + chunk;
+                    if(!chunk.equals(currentProfileUrl)){
+                        picUrl = chunk;
+                    }
                 }
             }
-            if(picUrl.length() == 0) picUrl = mContext.getString(R.string.default_profile_url);
+            Log.d(TAG, "final : " + picUrl);
+            if(picUrl.length() == 0 || picUrl.isEmpty()) picUrl = mContext.getString(R.string.default_profile_url);
             Picasso.with(mContext).load(picUrl).transform(new CircleTransform()).into(holder.friendPhoto);
             String date = Utility.getFriendlyDayAndTimeString(mContext, commentObject.getCreatedAt().getTime());
             holder.date.setText(date);

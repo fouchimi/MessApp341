@@ -30,12 +30,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-10.0.1_470403d867a9559fb50cae368f5dec4e7c0c4e99.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
         <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.0.0_a3c6a468588ca24203ba8bbad125621c86d39d01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_81864d7199dda8b128290afa00ccf3586457b675.jar" />
     </item>
     <item
         is-multidex="false"
@@ -66,21 +84,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse/parseinterceptors/0.0.2/8c62746a7c33ffa044d9cd9c390a4c9d209b8925/parseinterceptors-0.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8c62746a7c33ffa044d9cd9c390a4c9d209b8925">
-        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/parseinterceptors-0.0.2_5c81677f4eecc6d0b21f9bbdbaf86a44412f99ab.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/2.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="343ad59d9fb3bbf6ab99baafad859eb4b0fecc02">
         <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-twitter-core-2.3.0_fb82b04c03c39deb5de6cb3a7cd6d9c590d7ae95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse/parseinterceptors/0.0.2/8c62746a7c33ffa044d9cd9c390a4c9d209b8925/parseinterceptors-0.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8c62746a7c33ffa044d9cd9c390a4c9d209b8925">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/parseinterceptors-0.0.2_5c81677f4eecc6d0b21f9bbdbaf86a44412f99ab.jar" />
     </item>
     <item
         is-multidex="false"
@@ -102,21 +120,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
-        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-8.4.0_d05952495b48f93d2505a43cb2dfc99ae9e6d9e0.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.13.1/5f645bf60e3b88ccc02bd2a4018c5e3ef2f77d0a/parse-android-1.13.1.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="5f645bf60e3b88ccc02bd2a4018c5e3ef2f77d0a">
         <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/parse-android-1.13.1_bf89e6d00380f751d517a6e8d04fa1cc00402b09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-10.0.1_9b9cf8911cae1a4f4229ded1599615a175bb8fac.jar" />
     </item>
     <item
         is-multidex="false"
@@ -165,15 +183,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
-        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-8.4.0_34f38883c3493751af6c17ad040f334302b5d00a.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -207,6 +216,15 @@
         revision="24.0.2"
         sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
         <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.0.0_16a45ace57e29cb707e43f18b3d98f15df51de7b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-10.0.1_b79fceebcad3edc87d4f51053af853566d49cf8a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -255,12 +273,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.4.0/jars/classes.jar"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
-        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appindexing-8.4.0_0d2813c1c5095c6ba8d52acbe81d728c6eb6f8c5.jar" />
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_2beba19ba8e08a3254b9960b365fca177e98c435.jar" />
     </item>
     <item
         is-multidex="false"
@@ -327,6 +345,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-10.0.1_dc59184cb374537abd6b613acc873ac982561874.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
         jumboMode="false"
         optimize="true"
@@ -381,12 +408,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/jars/classes.jar"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
-        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-1.2.1_c29bf233b9f65c75ad56bc84a42f9bfed3db12d7.jar" />
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-10.0.1_0c13b485b7ff82cf56aba101e04c74e20bb1529c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -399,12 +426,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-1.2.1_c29bf233b9f65c75ad56bc84a42f9bfed3db12d7.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/ousmane/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
         <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_5f104a6610be382696337546c42b360987d711be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_87a80eb48fcf583ac74553564ce4613b86d17cca.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/home/ousmane/AndroidStudioProjects/MessApp341/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-10.0.1_ff6d797076d643e957b675b70b1b15ff0ca593af.jar" />
     </item>
     <item
         is-multidex="false"

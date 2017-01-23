@@ -2,6 +2,9 @@ package com.social.messapp34;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,7 +28,15 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -52,7 +63,8 @@ import java.util.List;
 import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity implements
+        GoogleApiClient.OnConnectionFailedListener {
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "5liuPi4bQUdx8qUBaitkc3Dcx";
@@ -70,13 +82,14 @@ public class SignInActivity extends AppCompatActivity {
     private ParseUser mCurrentUser;
     private AccessToken mAccessToken;
     private AccessTokenTracker mAccessTokenTracker;
+    private static final int RC_GET_TOKEN = 9002;
+    private GoogleApiClient mGoogleApiClient;
+    private Button mGoogleSignInButton;
 
     private CallbackManager mCallbackManager;
     private FacebookCallback<LoginResult> mCallBack = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
-            ProgressDialog.show(SignInActivity.this, null,
-                    getString(R.string.alert_wait));
             if(Profile.getCurrentProfile() == null){
                 GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
@@ -160,6 +173,8 @@ public class SignInActivity extends AppCompatActivity {
                             }
                         }).executeAsync();
             }
+            loginProgressDlg = ProgressDialog.show(SignInActivity.this, null,
+                    getString(R.string.alert_wait));
         }
         @Override
         public void onCancel() {
@@ -200,9 +215,13 @@ public class SignInActivity extends AppCompatActivity {
         usernameText = (EditText) findViewById(R.id.user);
         passwordText = (EditText) findViewById(R.id.pwd);
 
+        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Raleway-ExtraBold.ttf");
 
         mFbLoginButton = (LoginButton) findViewById(R.id.login_button);
         mTwitterLoginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
+        mGoogleSignInButton = (Button) findViewById(R.id.google_sign_in_button);
+
+        mGoogleSignInButton.setTypeface(typeFace);
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -340,6 +359,88 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.server_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        mGoogleSignInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, RC_GET_TOKEN);
+            }
+        });
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+        loginProgressDlg = ProgressDialog.show(SignInActivity.this, null,
+                getString(R.string.alert_wait));
+        if (result.isSuccess()) {
+            //String idToken = result.getSignInAccount().getIdToken();
+            //Toast.makeText(this, idToken, Toast.LENGTH_LONG).show();
+            GoogleSignInAccount userGoogleAccount = result.getSignInAccount();
+            Log.d(TAG, "email: " + userGoogleAccount.getEmail());
+            Log.d(TAG, "Display name: " + userGoogleAccount.getDisplayName());
+            final String email = userGoogleAccount.getEmail();
+            final String username = userGoogleAccount.getGivenName();
+            Uri profile_uri = userGoogleAccount.getPhotoUrl();
+            Log.d(TAG, profile_uri.getAuthority());
+            Log.d(TAG, profile_uri.getPath());
+            final String profile_picture = "http://" + profile_uri.getAuthority() + profile_uri.getPath();
+            final String password = getString(R.string.default_password);
+            ParseQuery<ParseUser> queryUser = ParseUser.getQuery();
+            queryUser.whereEqualTo(Constants.EMAIL, email);
+            queryUser.getFirstInBackground(new GetCallback<ParseUser>() {
+                @Override
+                public void done(ParseUser user, ParseException e) {
+                    if(e != null){
+                        Log.d(TAG, e.getMessage());
+                        mCurrentUser = new ParseUser();
+                        mCurrentUser.setUsername(username);
+                        mCurrentUser.setPassword(password);
+                        mCurrentUser.setEmail(email);
+                        mCurrentUser.put(Constants.PROFILE_PICTURE, profile_picture);
+                        mCurrentUser.signUpInBackground(new SignUpCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e == null){
+                                    Log.d(TAG, "Account created !!!");
+                                    Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    SignInActivity.this.startActivity(intent);
+                                    loginProgressDlg.dismiss();
+                                }else {
+                                    Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    }else {
+                        ParseUser.logInInBackground(username, password, new LogInCallback() {
+                            @Override
+                            public void done(ParseUser user, ParseException e) {
+                                if(e == null){
+                                    Log.d(TAG, "Logging in ...");
+                                    Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    SignInActivity.this.startActivity(intent);
+                                    loginProgressDlg.dismiss();
+                                }else {
+                                    Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        } else {
+            Log.d(TAG, "" + result.getStatus());
+        }
     }
 
     private void runThread() {
@@ -367,6 +468,14 @@ public class SignInActivity extends AppCompatActivity {
         mAccessTokenTracker.stopTracking();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(loginProgressDlg != null){
+            loginProgressDlg.dismiss();
+        }
+    }
+
     private void goToHomeActivity(){
         Intent intent = new Intent(this, HomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
@@ -380,6 +489,11 @@ public class SignInActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
         mTwitterLoginButton.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_GET_TOKEN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Log.d(TAG, "onActivityResult:GET_TOKEN:success:" + result.getStatus().isSuccess());
+            handleSignInResult(result);
+        }
     }
 
 
@@ -409,5 +523,11 @@ public class SignInActivity extends AppCompatActivity {
             Log.d(TAG, "Fill all fields");
             Toast.makeText(this, "Enter username and password", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Toast.makeText(this, connectionResult.getErrorMessage(), Toast.LENGTH_LONG).show();
+        Log.d(TAG, connectionResult.getErrorMessage());
     }
 }
