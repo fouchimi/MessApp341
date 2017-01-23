@@ -56,7 +56,11 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendView
                     final String username = user.getUsername();
                     final String[] cleanedUserName = username.split("_");
                     friendViewHolder.personName.setText(cleanedUserName[0]);
-                    friendViewHolder.personLocation.setText(mContext.getString(R.string.lives_at) + " " + user.getString(Constants.LOCATION));
+                    String location = "";
+                    if(user.getString(Constants.LOCATION) == null || user.getString(Constants.LOCATION).length() == 0)
+                        location = "Not provided";
+                    else location = user.getString(Constants.LOCATION);
+                    friendViewHolder.personLocation.setText(mContext.getString(R.string.lives_at) + " " + location);
                     String picture_thumbnail = user.getString(Constants.PROFILE_PICTURE);
                     if(picture_thumbnail == null || picture_thumbnail.isEmpty()){
                         Picasso.with(mContext).load(mContext.getString(R.string.default_profile_url)).transform(new CircleTransform()).

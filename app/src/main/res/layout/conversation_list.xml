@@ -30,7 +30,7 @@
                     android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/pad_8dp"
+                    android:paddingLeft="@dimen/pad_5dp"
                     android:textColor="@color/boldBlack"
                     android:textSize="@dimen/txt_18sp"
                     android:layout_alignParentLeft="true" />
@@ -50,7 +50,6 @@
                 android:id="@+id/conversation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/pad_8dp"
                 android:paddingBottom="@dimen/pad_8dp"
                 android:layout_marginLeft="@dimen/mar_5dp"/>
 

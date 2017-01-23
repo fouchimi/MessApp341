@@ -85,7 +85,9 @@ public class FriendFragment extends Fragment {
                                 final String[] cleanedUserName = username.split("_");
                                 buddy.setId(friend.getObjectId());
                                 buddy.setUsername(cleanedUserName[0]);
-                                buddy.setLocation(user.getString(Constants.LOCATION));
+                                if(user.getString(Constants.LOCATION) == null)
+                                    buddy.setLocation("Not provided");
+                                else buddy.setLocation(user.getString(Constants.LOCATION));
                                 String picture_thumbnail = user.getString(Constants.PROFILE_PICTURE);
                                 if(picture_thumbnail == null || picture_thumbnail.isEmpty()){
                                    buddy.setThumbnail(getActivity().getString(R.string.default_profile_url));

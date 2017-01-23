@@ -68,12 +68,16 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
         final String username = members.get(position).getUsername();
         final String[] cleanedUserName = username.split("_");
         memberViewHolder.personName.setText(cleanedUserName[0]);
-        memberViewHolder.personLocation.setText(mContext.getString(R.string.lives_at) + " " + person.getString(Constants.LOCATION));
+        String location ="";
+        if(person.getString(Constants.LOCATION) == null || person.getString(Constants.LOCATION).length() == 0)
+            location = "Not provided";
+        else location = person.getString(Constants.LOCATION);
+        memberViewHolder.personLocation.setText(mContext.getString(R.string.lives_at) + " " + location);
         String picture_thumbnail = members.get(position).getString(Constants.PROFILE_PICTURE);
         if(picture_thumbnail == null || picture_thumbnail.isEmpty()){
             Picasso.with(mContext).load(mContext.getString(R.string.default_profile_url)).transform(new CircleTransform()).
                     into(memberViewHolder.personPhoto);
-        }else Picasso.with(mContext).load(person .getString(Constants.PROFILE_PICTURE)).
+        }else Picasso.with(mContext).load(person.getString(Constants.PROFILE_PICTURE)).
                 transform(new CircleTransform()).into(memberViewHolder.personPhoto);
 
         final ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.FRIENDS_TABLE);

@@ -53,6 +53,8 @@ public class ChatActivity extends AppCompatActivity {
     private ListView list;
     private ParseUser mCurrentUser;
     public boolean isRunning = false;
+    private Date lastMsgDate;
+    private TextView update_txt;
 
     private static Handler handler;
 
@@ -135,7 +137,8 @@ public class ChatActivity extends AppCompatActivity {
             //Fetch all conversations
             mainQuery.orderByDescending(Constants.CREATED_AT);
         }else {
-            mainQuery.whereGreaterThan(Constants.DATE, convList.get(convList.size()-1).getDate());
+            lastMsgDate = convList.get(convList.size()-1).getDate();
+            mainQuery.whereGreaterThan(Constants.DATE, lastMsgDate);
         }
         mainQuery.setLimit(30);
         mainQuery.findInBackground(new FindCallback<ParseObject>() {
@@ -149,6 +152,8 @@ public class ChatActivity extends AppCompatActivity {
                         c.setDate(po.getCreatedAt());
                         c.setSenderId(po.getString(Constants.SENDER));
                         convList.add(c);
+                        if(lastMsgDate == null || lastMsgDate.before(c.getDate()))
+                            lastMsgDate = c.getDate();
                         chatAdapter.notifyDataSetChanged();
                     }
 
@@ -196,6 +201,9 @@ public class ChatActivity extends AppCompatActivity {
             ParseObject newRecord = new ParseObject(Constants.CHATS_TABLE);
             final ParseObject lastComment = new ParseObject(Constants.LAST_CHAT_TABLE);
 
+            String profile_Url = mCurrentUser.getString(Constants.PROFILE_PICTURE);
+            if(profile_Url == null) profile_Url = getString(R.string.default_profile_url);
+
             newRecord.put(Constants.SENDER, mCurrentUser.getObjectId());
             newRecord.put(Constants.RECEIVER, buddy.getId());
             newRecord.put(Constants.MESSAGE, messageText);
@@ -205,7 +213,7 @@ public class ChatActivity extends AppCompatActivity {
             lastComment.put(Constants.MESSAGE, messageText);
             lastComment.put(Constants.DATE, currentDate);
             lastComment.put(Constants.FRIEND_NAME, buddy.getUsername() + "," + currentUserName);
-            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail()+ "," + mCurrentUser.getString(Constants.PROFILE_PICTURE));
+            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail()+ "," + profile_Url);
             lastComment.put(Constants.USER_ID, mCurrentUser.getObjectId());
 
             newRecord.saveEventually(new SaveCallback() {
@@ -213,7 +221,6 @@ public class ChatActivity extends AppCompatActivity {
                 public void done(ParseException e) {
                     if(e == null){
                         c.setStatus(Conversation.STATUS_SENT);
-                        chatAdapter.notifyDataSetChanged();
                     }else {
                         Log.d(TAG, e.getMessage());
                         c.setStatus(Conversation.STATUS_FAILED);
@@ -283,7 +290,6 @@ public class ChatActivity extends AppCompatActivity {
             return id;
         }
 
-
         @Override
         public View getView(int pos, View convertView, ViewGroup parent) {
             Conversation c = getItem(pos);
@@ -295,9 +301,10 @@ public class ChatActivity extends AppCompatActivity {
 
                 TextView lbl = (TextView) convertView.findViewById(R.id.lbl1);
                 ImageView profileView = (ImageView) convertView.findViewById(R.id.profile_thumbnail);
-
+                String profile_Url = mCurrentUser.getString(Constants.PROFILE_PICTURE);
+                if(profile_Url == null) profile_Url = getString(R.string.default_profile_url);
                 if(c.isSent())
-                    Picasso.with(ChatActivity.this).load(mCurrentUser.getString(Constants.PROFILE_PICTURE)).transform(new CircleTransform()).into(profileView);
+                    Picasso.with(ChatActivity.this).load(profile_Url).transform(new CircleTransform()).into(profileView);
                 else {
                     Picasso.with(ChatActivity.this).load(buddy.getThumbnail()).transform(new CircleTransform()).into(profileView);
                 }
@@ -310,7 +317,7 @@ public class ChatActivity extends AppCompatActivity {
                         lbl.setText(getString(R.string.delivered_text));
                     else {
                         if (c.getStatus() == Conversation.STATUS_SENDING)
-                            lbl.setText(getString(R.string.sending_text));
+                            lbl.setText(getString(R.string.delivered_text));
                         else {
                             lbl.setText(getString(R.string.failed_text));
                         }
