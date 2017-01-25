@@ -22,6 +22,7 @@ public class Constants
 	public static final String CHATS_TABLE = "Chats";
 	public static final String MESSAGE = "message";
 	public static final String CREATED_AT= "createdAt";
+	public static final String UPDATED_AT = "updatedAt";
 	public static final String FRIEND = "friend";
 	public static final String DATE = "date";
 	public static final String FRIEND_NAME="friend_name";

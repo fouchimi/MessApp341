@@ -33,6 +33,7 @@ public class ChatFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private LastCommentAdapter commentAdapter;
+    final List<ParseObject> comments = new ArrayList<>();
 
     private static final String TAG = ChatFragment.class.getSimpleName();
 
@@ -129,7 +130,7 @@ public class ChatFragment extends Fragment {
     }
 
     public void fetchRecentMessages(){
-        final List<ParseObject> comments = new ArrayList<>();
+        comments.clear();
         ParseQuery<ParseObject> firstQuery = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
         firstQuery.whereEqualTo(Constants.USER_ID, ParseUser.getCurrentUser().getObjectId());
 
@@ -141,8 +142,7 @@ public class ChatFragment extends Fragment {
         queries.add(secondQuery);
 
         ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
-
-        mainQuery.orderByDescending(Constants.CREATED_AT);
+        mainQuery.orderByDescending(Constants.DATE);
 
         mainQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override

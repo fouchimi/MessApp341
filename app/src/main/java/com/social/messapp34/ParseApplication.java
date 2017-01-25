@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
+import com.parse.ParseUser;
 import com.parse.interceptors.ParseLogInterceptor;
 import com.parse.interceptors.ParseStethoInterceptor;
 
@@ -29,6 +30,8 @@ public class ParseApplication extends Application {
 
         // Need to register GCM token
         ParseInstallation.getCurrentInstallation().saveInBackground();
-
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("user", ParseUser.getCurrentUser().getObjectId());
+        installation.saveInBackground();
     }
 }

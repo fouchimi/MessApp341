@@ -19,20 +19,19 @@
             android:gravity="center_vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/chat_bubble_green"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/chat_bubble_purple"
+                android:padding="@dimen/pad_8dp"
                 android:orientation="vertical"
-                android:layout_marginTop="@dimen/mar_15dp"
                 android:layout_marginRight="@dimen/mar_35dp">
 
                 <TextView
                     android:id="@+id/lbl1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/pad_5dp"
                     android:textColor="@color/white"
-                    android:paddingTop="@dimen/pad_5dp"
-                    android:paddingLeft="@dimen/pad_10dp"
                     android:textSize="@dimen/txt_13sp"
                     android:layout_marginRight="@dimen/mar_40dp" />
 
@@ -41,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:paddingLeft="@dimen/pad_10dp"
+                    android:paddingLeft="@dimen/pad_5dp"
                     android:textSize="@dimen/txt_15sp"
                     android:maxLines="4"
                     android:layout_marginRight="@dimen/mar_40dp"
@@ -52,7 +51,7 @@
             <ImageView
                 android:id="@+id/profile_thumbnail"
                 android:layout_width="@dimen/thumbnail_size"
-                android:layout_height="@dimen/thumbnail_size"
+                android:layout_height="@dimen/thumbnail_height"
                 android:scaleType="fitXY"
                 android:layout_gravity="right|bottom"/>
 
