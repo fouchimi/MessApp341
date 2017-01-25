@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -49,12 +50,12 @@ public class ChatActivity extends AppCompatActivity {
     private ChatAdapter chatAdapter;
 
     private EditText txt;
+    private ImageButton mSendButton;
     private ChatUser buddy;
     private ListView list;
     private ParseUser mCurrentUser;
     public boolean isRunning = false;
     private Date lastMsgDate;
-    private TextView update_txt;
 
     private static Handler handler;
 
@@ -74,6 +75,7 @@ public class ChatActivity extends AppCompatActivity {
         list.setStackFromBottom(true);
 
         txt = (EditText) findViewById(R.id.txt);
+        mSendButton = (ImageButton) findViewById(R.id.btnSend);
         txt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 
         buddy = (ChatUser) getIntent().getSerializableExtra(Constants.FRIEND);
@@ -97,6 +99,13 @@ public class ChatActivity extends AppCompatActivity {
 
         handler = new Handler();
 
+        mSendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessage();
+            }
+        });
+
     }
 
     @Override
@@ -106,12 +115,6 @@ public class ChatActivity extends AppCompatActivity {
         loadConversationList();
     }
 
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
     @Override
     public void onStop() {
         super.onStop();
@@ -119,7 +122,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     public void loadConversationList(){
-        //convList.clear();
         List<ParseQuery<ParseObject>> queries = new ArrayList<>();
         final ParseQuery firstQuery = new ParseQuery(Constants.CHATS_TABLE);
         firstQuery.whereEqualTo(Constants.SENDER, mCurrentUser.getObjectId());
@@ -129,16 +131,25 @@ public class ChatActivity extends AppCompatActivity {
         secondQuery.whereEqualTo(Constants.SENDER, buddy.getId());
         secondQuery.whereEqualTo(Constants.RECEIVER, mCurrentUser.getObjectId());
 
-        queries.add(firstQuery);
-        queries.add(secondQuery);
-
-        ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
+        ParseQuery<ParseObject> mainQuery = null;
         if(convList.size() == 0){
             //Fetch all conversations
+            queries.add(firstQuery);
+            queries.add(secondQuery);
+
+            mainQuery = ParseQuery.or(queries);
             mainQuery.orderByDescending(Constants.CREATED_AT);
+            Log.d(TAG, "Fetching all conversations ...");
         }else {
-            lastMsgDate = convList.get(convList.size()-1).getDate();
-            mainQuery.whereGreaterThan(Constants.DATE, lastMsgDate);
+            // Fetch receiving messages
+            queries.clear();
+            queries.add(secondQuery);
+            mainQuery = ParseQuery.or(queries);
+            if(lastMsgDate != null){
+                mainQuery.orderByDescending(Constants.CREATED_AT);
+                mainQuery.whereGreaterThan(Constants.CREATED_AT, lastMsgDate);
+            }
+
         }
         mainQuery.setLimit(30);
         mainQuery.findInBackground(new FindCallback<ParseObject>() {
@@ -150,6 +161,7 @@ public class ChatActivity extends AppCompatActivity {
                         Conversation c = new Conversation();
                         c.setMsg(po.getString(Constants.MESSAGE));
                         c.setDate(po.getCreatedAt());
+                        Log.d(TAG, "current date: " + c.getDate());
                         c.setSenderId(po.getString(Constants.SENDER));
                         convList.add(c);
                         if(lastMsgDate == null || lastMsgDate.before(c.getDate()))
@@ -157,12 +169,15 @@ public class ChatActivity extends AppCompatActivity {
                         chatAdapter.notifyDataSetChanged();
                     }
 
+                    Log.d(TAG, "After loading all data: " + lastMsgDate.toString());
+
                 }
 
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         if(isRunning){
+                            Log.d(TAG, "Running after new message");
                             loadConversationList();
                         }
                     }
@@ -179,18 +194,17 @@ public class ChatActivity extends AppCompatActivity {
         imm.hideSoftInputFromWindow(txt.getWindowToken(), 0);
     }
 
-    public void sendMessage(View view){
-        final String messageText = txt.getText().toString();
-        Log.d(TAG, "Send button pressed!!!");
-        if(messageText.length() == 0) return;
+    public void sendMessage(){
+        final String messageText = txt.getText().toString().trim();
+        if(messageText.length() == 0 || messageText.isEmpty()) return;
         else {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(txt, InputMethodManager.SHOW_FORCED);
             final Date currentDate = new Date();
-            final Conversation c = new Conversation(messageText, currentDate, mCurrentUser.getObjectId());
+            final Conversation c = new Conversation(messageText, mCurrentUser.getObjectId());
             c.setStatus(Conversation.STATUS_SENDING);
-            if(convList.size() > 0)
-                Log.d(TAG, "The last message sent is: " + convList.get(convList.size()-1).getMsg());
+            if(lastMsgDate != null && lastMsgDate.before(currentDate)) lastMsgDate = currentDate;
+            Log.d(TAG, "Last message date: " + lastMsgDate.toString());
             convList.add(c);
             chatAdapter.notifyDataSetChanged();
             txt.setText("");
@@ -207,20 +221,13 @@ public class ChatActivity extends AppCompatActivity {
             newRecord.put(Constants.SENDER, mCurrentUser.getObjectId());
             newRecord.put(Constants.RECEIVER, buddy.getId());
             newRecord.put(Constants.MESSAGE, messageText);
-            newRecord.put(Constants.DATE, currentDate);
-
-            lastComment.put(Constants.FRIEND_ID, buddy.getId());
-            lastComment.put(Constants.MESSAGE, messageText);
-            lastComment.put(Constants.DATE, currentDate);
-            lastComment.put(Constants.FRIEND_NAME, buddy.getUsername() + "," + currentUserName);
-            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail()+ "," + profile_Url);
-            lastComment.put(Constants.USER_ID, mCurrentUser.getObjectId());
 
             newRecord.saveEventually(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     if(e == null){
                         c.setStatus(Conversation.STATUS_SENT);
+                        chatAdapter.notifyDataSetChanged();
                     }else {
                         Log.d(TAG, e.getMessage());
                         c.setStatus(Conversation.STATUS_FAILED);
@@ -228,6 +235,13 @@ public class ChatActivity extends AppCompatActivity {
                     }
                 }
             });
+
+            lastComment.put(Constants.FRIEND_ID, buddy.getId());
+            lastComment.put(Constants.MESSAGE, messageText);
+            lastComment.put(Constants.CREATED_AT, currentDate);
+            lastComment.put(Constants.FRIEND_NAME, buddy.getUsername() + "," + currentUserName);
+            lastComment.put(Constants.PROFILE_PICTURE, buddy.getThumbnail()+ "," + profile_Url);
+            lastComment.put(Constants.USER_ID, mCurrentUser.getObjectId());
 
             ParseQuery<ParseObject> firstQuery = ParseQuery.getQuery(Constants.LAST_CHAT_TABLE);
             firstQuery.whereEqualTo(Constants.FRIEND_ID, buddy.getId());
@@ -249,7 +263,7 @@ public class ChatActivity extends AppCompatActivity {
                     if(e == null){
                         if(lastConversation != null){
                             lastConversation.put(Constants.MESSAGE, messageText);
-                            lastConversation.put(Constants.DATE, currentDate);
+                            lastConversation.put(Constants.CREATED_AT, currentDate);
                             lastConversation.saveInBackground();
                         }
                     }else {
@@ -280,9 +294,7 @@ public class ChatActivity extends AppCompatActivity {
 
         @Override
         public Conversation getItem(int position) {
-            if(convList.size() > 0)
-                return convList.get(position);
-            else return null;
+            return convList.get(position);
         }
 
         @Override
@@ -293,37 +305,45 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public View getView(int pos, View convertView, ViewGroup parent) {
             Conversation c = getItem(pos);
-            if(c != null){
-                if(c.isSent())
-                    convertView = getLayoutInflater().inflate(R.layout.chat_item_sent, null);
-                else
-                    convertView = getLayoutInflater().inflate(R.layout.chat_item_rcv, null);
+            if(c.isSent()){
+                convertView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.chat_item_sent, parent, false);
+            }
+            else{
+                convertView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.chat_item_rcv, parent, false);
+            }
 
-                TextView lbl = (TextView) convertView.findViewById(R.id.lbl1);
-                ImageView profileView = (ImageView) convertView.findViewById(R.id.profile_thumbnail);
-                String profile_Url = mCurrentUser.getString(Constants.PROFILE_PICTURE);
-                if(profile_Url == null) profile_Url = getString(R.string.default_profile_url);
-                if(c.isSent())
-                    Picasso.with(ChatActivity.this).load(profile_Url).transform(new CircleTransform()).into(profileView);
+            ImageView profileView = (ImageView) convertView.findViewById(R.id.profile_thumbnail);
+            String profile_Url = mCurrentUser.getString(Constants.PROFILE_PICTURE);
+            if(profile_Url == null) profile_Url = getString(R.string.default_profile_url);
+            if(c.isSent())
+                Picasso.with(ChatActivity.this).load(profile_Url).transform(new CircleTransform()).into(profileView);
+            else {
+                Picasso.with(ChatActivity.this).load(buddy.getThumbnail()).transform(new CircleTransform()).into(profileView);
+            }
+            TextView lbl = (TextView) convertView.findViewById(R.id.lbl1);
+
+            if(c.getDate() == null){
+                c.setDate(new Date());
+            }
+            lbl.setText(Utility.getFriendlyDayAndTimeString(ChatActivity.this, c.getDate().getTime()));
+
+            lbl = (TextView) convertView.findViewById(R.id.lbl2);
+            lbl.setText(c.getMsg());
+
+            lbl = (TextView) convertView.findViewById(R.id.lbl3);
+
+            if (c.isSent()) {
+                if (c.getStatus() == Conversation.STATUS_SENT)
+                    lbl.setText(getString(R.string.delivered_text));
                 else {
-                    Picasso.with(ChatActivity.this).load(buddy.getThumbnail()).transform(new CircleTransform()).into(profileView);
-                }
-                lbl.setText(Utility.getFriendlyDayAndTimeString(ChatActivity.this, c.getDate().getTime()));
-                lbl = (TextView) convertView.findViewById(R.id.lbl2);
-                lbl.setText(c.getMsg());
-                lbl = (TextView) convertView.findViewById(R.id.lbl3);
-                if (c.isSent()) {
-                    if (c.getStatus() == Conversation.STATUS_SENT)
-                        lbl.setText(getString(R.string.delivered_text));
+                    if (c.getStatus() == Conversation.STATUS_SENDING)
+                        lbl.setText(getString(R.string.sending_text));
                     else {
-                        if (c.getStatus() == Conversation.STATUS_SENDING)
-                            lbl.setText(getString(R.string.delivered_text));
-                        else {
-                            lbl.setText(getString(R.string.failed_text));
-                        }
+                        lbl.setText(getString(R.string.failed_text));
                     }
-                } else
-                    lbl.setText("");
+                }
+            }else{
+                lbl.setText("");
             }
 
             return convertView;

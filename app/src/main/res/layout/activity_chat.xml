@@ -47,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/btn"
-            android:onClick="sendMessage"
             android:background="@drawable/ic_send"
             android:padding="@dimen/pad_8dp"
             android:layout_marginRight="@dimen/mar_10dp"

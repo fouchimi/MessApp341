@@ -142,7 +142,7 @@ public class ChatFragment extends Fragment {
         queries.add(secondQuery);
 
         ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
-        mainQuery.orderByDescending(Constants.DATE);
+        mainQuery.orderByDescending(Constants.UPDATED_AT);
 
         mainQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override

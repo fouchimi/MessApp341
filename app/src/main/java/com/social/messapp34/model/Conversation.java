@@ -32,6 +32,11 @@ public class Conversation {
         this.senderId = senderId;
     }
 
+    public Conversation (String msg, String senderId){
+        this.msg = msg;
+        this.senderId = senderId;
+    }
+
     public String getMsg() {
         return msg;
     }
