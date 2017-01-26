@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.parse.ParseUser;
 import com.social.messapp34.HomeActivity;
 
 import org.json.JSONException;
@@ -40,7 +41,7 @@ public class ParsePushBroadcastReceiver extends BroadcastReceiver {
     private void processPush(Context context, Intent intent) {
         String action = intent.getAction();
         Log.d(TAG, "got action " + action);
-        String title = "", alert = "", text = "";
+        String alert = "", title="";
         if (action.equals(intentAction)) {
             String channel = intent.getExtras().getString("com.parse.Channel");
             try {
@@ -52,17 +53,14 @@ public class ParsePushBroadcastReceiver extends BroadcastReceiver {
                     String key = (String) itr.next();
                     String value = json.getString(key);
                     Log.d(TAG, "..." + key + " => " + value);
-                    // Extract custom push data
                     if(key.equals("title")){
                         title = value;
                     }else if(key.equals("alert")){
                         alert = value;
-                    }else if(key.equals("text")){
-                        text = value;
                     }
                 }
+                 showNotification(context, title, alert);
 
-                showNotification(context, title, text);
             } catch (JSONException ex) {
                 Log.d(TAG, "JSON failed!");
             }

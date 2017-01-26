@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.facebook.login.LoginManager;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 
 public class HomeActivity extends AppCompatActivity {
@@ -34,11 +35,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mCurrentUser = ParseUser.getCurrentUser();
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("user", mCurrentUser.getObjectId());
+        installation.saveInBackground();
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.container);

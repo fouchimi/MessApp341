@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
@@ -26,7 +27,9 @@ import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -37,6 +40,9 @@ import com.social.messapp34.utils.CircleTransform;
 import com.social.messapp34.utils.Constants;
 import com.social.messapp34.utils.Utility;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -139,7 +145,6 @@ public class ChatActivity extends AppCompatActivity {
 
             mainQuery = ParseQuery.or(queries);
             mainQuery.orderByDescending(Constants.CREATED_AT);
-            Log.d(TAG, "Fetching all conversations ...");
         }else {
             // Fetch receiving messages
             queries.clear();
@@ -203,8 +208,6 @@ public class ChatActivity extends AppCompatActivity {
             final Date currentDate = new Date();
             final Conversation c = new Conversation(messageText, mCurrentUser.getObjectId());
             c.setStatus(Conversation.STATUS_SENDING);
-            if(lastMsgDate != null && lastMsgDate.before(currentDate)) lastMsgDate = currentDate;
-            Log.d(TAG, "Last message date: " + lastMsgDate.toString());
             convList.add(c);
             chatAdapter.notifyDataSetChanged();
             txt.setText("");
@@ -228,6 +231,23 @@ public class ChatActivity extends AppCompatActivity {
                     if(e == null){
                         c.setStatus(Conversation.STATUS_SENT);
                         chatAdapter.notifyDataSetChanged();
+
+                        ParsePush push = new ParsePush();
+                        JSONObject data = new JSONObject();
+                        /*ParseQuery pushQuery = ParseInstallation.getQuery();
+                        pushQuery.whereEqualTo("user", buddy.getId()); */
+                        try{
+                            push.setChannel("Chats");
+                            data.put("title", mCurrentUser.getUsername());
+                            data.put("receiver", buddy.getId());
+                            data.put("alert", messageText);
+                            push.setData(data);
+                            push.sendInBackground();
+                        }catch (JSONException e1){
+                            e1.printStackTrace();
+                        }
+
+
                     }else {
                         Log.d(TAG, e.getMessage());
                         c.setStatus(Conversation.STATUS_FAILED);

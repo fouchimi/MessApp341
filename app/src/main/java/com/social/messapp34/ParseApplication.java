@@ -30,8 +30,5 @@ public class ParseApplication extends Application {
 
         // Need to register GCM token
         ParseInstallation.getCurrentInstallation().saveInBackground();
-        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
-        //installation.put("user", ParseUser.getCurrentUser().getObjectId());
-        installation.saveInBackground();
     }
 }
