@@ -247,25 +247,17 @@ public class ChatActivity extends AppCompatActivity {
             newRecord.put(Constants.RECEIVER, buddy.getId());
             newRecord.put(Constants.MESSAGE, messageText);
 
-            HashMap<String, String> params = new HashMap<>();
-            params.put("sender", mCurrentUser.getUsername());
-            params.put("receiver", buddy.getId());
-            params.put("message", messageText);
-            ParseCloud.callFunctionInBackground("Chats", params, new FunctionCallback<String>() {
-                @Override
-                public void done(String object, ParseException e) {
-                    if(e == null){
-                        Log.d(TAG, "Push sent successfully");
-                    }
-                }
-            });
-
             newRecord.saveEventually(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     if(e == null){
                         c.setStatus(Conversation.STATUS_SENT);
                         chatAdapter.notifyDataSetChanged();
+                        HashMap<String, String> payload = new HashMap<>();
+                        payload.put("title", mCurrentUser.getUsername());
+                        payload.put("alert", messageText);
+                        payload.put("recipientId", buddy.getId());
+                        ParseCloud.callFunctionInBackground("chatChannel", payload);
 
                     }else {
                         Log.d(TAG, e.getMessage());
