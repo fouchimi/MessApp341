@@ -1,7 +1,11 @@
 package com.social.messapp34;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,8 +28,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.FunctionCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
@@ -36,6 +42,7 @@ import com.parse.SaveCallback;
 import com.social.messapp34.adapters.LastCommentAdapter;
 import com.social.messapp34.model.ChatUser;
 import com.social.messapp34.model.Conversation;
+import com.social.messapp34.services.ParsePushBroadcastReceiver;
 import com.social.messapp34.utils.CircleTransform;
 import com.social.messapp34.utils.Constants;
 import com.social.messapp34.utils.Utility;
@@ -46,6 +53,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -64,6 +72,13 @@ public class ChatActivity extends AppCompatActivity {
     private Date lastMsgDate;
 
     private static Handler handler;
+
+    private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "On Received invoked");
+        }
+    };
 
 
     @Override
@@ -119,12 +134,19 @@ public class ChatActivity extends AppCompatActivity {
         super.onResume();
         isRunning = true;
         loadConversationList();
+        LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver, new IntentFilter(ParsePushBroadcastReceiver.intentAction));
     }
 
     @Override
     public void onStop() {
         super.onStop();
         isRunning = false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver);
     }
 
     public void loadConversationList(){
@@ -225,28 +247,25 @@ public class ChatActivity extends AppCompatActivity {
             newRecord.put(Constants.RECEIVER, buddy.getId());
             newRecord.put(Constants.MESSAGE, messageText);
 
+            HashMap<String, String> params = new HashMap<>();
+            params.put("sender", mCurrentUser.getUsername());
+            params.put("receiver", buddy.getId());
+            params.put("message", messageText);
+            ParseCloud.callFunctionInBackground("Chats", params, new FunctionCallback<String>() {
+                @Override
+                public void done(String object, ParseException e) {
+                    if(e == null){
+                        Log.d(TAG, "Push sent successfully");
+                    }
+                }
+            });
+
             newRecord.saveEventually(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     if(e == null){
                         c.setStatus(Conversation.STATUS_SENT);
                         chatAdapter.notifyDataSetChanged();
-
-                        ParsePush push = new ParsePush();
-                        JSONObject data = new JSONObject();
-                        /*ParseQuery pushQuery = ParseInstallation.getQuery();
-                        pushQuery.whereEqualTo("user", buddy.getId()); */
-                        try{
-                            push.setChannel("Chats");
-                            data.put("title", mCurrentUser.getUsername());
-                            data.put("receiver", buddy.getId());
-                            data.put("alert", messageText);
-                            push.setData(data);
-                            push.sendInBackground();
-                        }catch (JSONException e1){
-                            e1.printStackTrace();
-                        }
-
 
                     }else {
                         Log.d(TAG, e.getMessage());
